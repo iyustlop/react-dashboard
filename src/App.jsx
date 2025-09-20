@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import './App.css'
+import Sidebar from '@components/Sidebar/Sidebar'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -8,9 +9,7 @@ function App() {
     <>
       <div className="App">
         <div className="AppGlass">
-          <div></div>
-          <div></div>
-          <div></div>
+          <Sidebar />
         </div>
       </div>
     </>
