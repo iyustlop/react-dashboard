@@ -10,7 +10,9 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@emotion/react": "^11.14.0",
     "@iconscout/react-unicons": "^2.2.5",
+    "@mui/material": "^7.3.2",
     "apexcharts": "^5.3.5",
     "framer-motion": "^12.23.16",
     "react": "^19.1.1",
