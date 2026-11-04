@@ -27,6 +27,7 @@
 
 /* menu */
 .menu {
+  flex: 1;
   margin-top: 4rem;
   display: flex;
   flex-direction: column;
@@ -73,10 +74,10 @@
   margin-right: calc(1rem - 8px);
 }
 
-.menu .menuItem:last-child {
-  position: absolute;
-  bottom: 2.3rem;
-  width: 100%;
+.demoNotice {
+  margin: 0 0 1.5rem 2rem;
+  color: var(--gray);
+  font-size: 0.75rem;
 }
 
 @media screen and (max-width: 768px) {
@@ -89,6 +90,7 @@
   }
 
   .menu {
+    flex: none;
     flex-direction: row;
     gap: 0.5rem;
     margin-top: 1rem;
@@ -111,9 +113,8 @@
     display: none;
   }
 
-  .menu .menuItem:last-child {
-    position: static;
-    width: auto;
-    margin-top: 0;
+  .demoNotice {
+    margin: 0;
+    align-self: flex-end;
   }
 }

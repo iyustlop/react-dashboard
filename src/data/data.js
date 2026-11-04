@@ -6,26 +6,33 @@ import img3 from "../assets/img3.png";
 
 export const SidebarData = [
   {
+    id: "dashboard",
     icon: Unicons.UilEstate,
     heading: "Dashboard",
   },
   {
+    id: "orders",
     icon: Unicons.UilClipboardAlt,
     heading: "Orders",
   },
   {
+    id: "customers",
     icon: Unicons.UilUsersAlt,
     heading: "Customers",
   },
   {
+    id: "products",
     icon: Unicons.UilPackage,
     heading: "Products",
   },
   {
+    id: "analytics",
     icon: Unicons.UilChart,
     heading: "Analytics",
   },
 ];
+
+const daysAgo = (days) => new Date(Date.now() - days * 24 * 60 * 60 * 1000).toISOString();
 
 export const CardsData = [
   {
@@ -80,29 +87,41 @@ export const CardsData = [
 
 export const TableData = [
   {
-    name: "Lasania Chiken Fri",
+    name: "Lasagna Chicken Fries",
     trackingId: 18908424,
-    date: "2 March 2022",
+    date: daysAgo(0),
     status: "Approved",
   },
   {
-    name: "Big Baza Bang",
-    trackingId: 18908424,
-    date: "2 March 2022",
+    name: "Big Bazaar Bag",
+    trackingId: 18908425,
+    date: daysAgo(1),
     status: "Pending",
   },
   {
-    name: "Mouth Freshner",
-    trackingId: 18908424,
-    date: "2 March 2022",
+    name: "Mint Freshener",
+    trackingId: 18908426,
+    date: daysAgo(2),
     status: "Approved",
   },
   {
     name: "Cupcake",
-    trackingId: 18908421,
-    date: "2 March 2022",
+    trackingId: 18908427,
+    date: daysAgo(3),
     status: "Delivered",
   },
+];
+
+export const CustomersData = [
+  { name: "Andrew Thomas", email: "andrew@example.com", orders: 8, spent: "$1,240" },
+  { name: "James Bond", email: "james@example.com", orders: 5, spent: "$890" },
+  { name: "Iron Man", email: "tony@example.com", orders: 12, spent: "$2,410" },
+];
+
+export const ProductsData = [
+  { name: "Apple Smart Watch", category: "Electronics", stock: 24, price: "$249" },
+  { name: "Samsung Charger", category: "Accessories", stock: 8, price: "$39" },
+  { name: "Cupcake", category: "Food", stock: 42, price: "$5" },
 ];
 
 // Recent Update Card Data

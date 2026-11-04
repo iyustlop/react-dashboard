@@ -1,11 +1,11 @@
-import { describe, expect, it } from "vitest";
+import { describe, expect, it, vi } from "vitest";
 import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import Sidebar from "./Sidebar";
 
 describe("Sidebar", () => {
   it("renders every section and marks the first one as active", () => {
-    render(<Sidebar />);
+    render(<Sidebar selectedSection="dashboard" onSelect={vi.fn()} />);
 
     expect(screen.getByRole("button", { name: /dashboard/i })).toHaveClass("active");
     expect(screen.getByRole("button", { name: /orders/i })).toBeInTheDocument();
@@ -14,12 +14,12 @@ describe("Sidebar", () => {
 
   it("moves the active state when another section is clicked", async () => {
     const user = userEvent.setup();
-    render(<Sidebar />);
+    const onSelect = vi.fn();
+    render(<Sidebar selectedSection="dashboard" onSelect={onSelect} />);
 
     const orders = screen.getByRole("button", { name: /orders/i });
     await user.click(orders);
 
-    expect(orders).toHaveClass("active");
-    expect(screen.getByRole("button", { name: /dashboard/i })).not.toHaveClass("active");
+    expect(onSelect).toHaveBeenCalledWith("orders");
   });
 });

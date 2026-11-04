@@ -1,0 +1,86 @@
+.sectionPanel {
+  min-width: 0;
+}
+
+.sectionPanel h2,
+.analyticsMetric h2 {
+  margin: 0 0 0.75rem;
+  font-size: 1.1rem;
+}
+
+.sectionTableContainer {
+  overflow-x: auto;
+  border-radius: 0.75rem;
+  background: white;
+  box-shadow: var(--boxShadow);
+}
+
+.sectionTable {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+}
+
+.sectionTable th,
+.sectionTable td {
+  padding: 0.9rem 1rem;
+  border-bottom: 1px solid #ececf1;
+  white-space: nowrap;
+}
+
+.sectionTable th {
+  color: var(--black);
+  font-size: 0.9rem;
+}
+
+.sectionTable td {
+  color: var(--gray);
+}
+
+.sectionTable tbody tr:last-child td {
+  border-bottom: 0;
+}
+
+.analyticsSummary {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.analyticsMetric {
+  padding: 1.25rem;
+  border-radius: 0.75rem;
+  background: white;
+  box-shadow: var(--boxShadow);
+}
+
+.analyticsMetric h2 {
+  color: var(--gray);
+  font-size: 0.95rem;
+  font-weight: 500;
+}
+
+.analyticsMetric p {
+  margin: 0;
+  color: var(--black);
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.analyticsPanel {
+  margin-top: 1rem;
+  padding: 1rem;
+  border-radius: 0.75rem;
+  background: white;
+  box-shadow: var(--boxShadow);
+}
+
+.analyticsPanel .DeferredChart {
+  height: 20rem;
+}
+
+@media screen and (max-width: 768px) {
+  .analyticsSummary {
+    grid-template-columns: 1fr;
+  }
+}

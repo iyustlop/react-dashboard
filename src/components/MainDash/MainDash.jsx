@@ -1,15 +1,18 @@
 import "./MainDash.css";
-import Cards from "@components/Cards/Cards.jsx";
-import Table from "@components/Table/Table.jsx";
+import PropTypes from "prop-types";
 
-const MainDash = () => {
+const MainDash = ({ title, children }) => {
   return (
-    <div className="MainDash">
-      <h1>Main Dash</h1>
-      <Cards />
-      <Table />
-    </div>
+    <main className="MainDash">
+      <h1>{title}</h1>
+      {children}
+    </main>
   );
+};
+
+MainDash.propTypes = {
+  title: PropTypes.string.isRequired,
+  children: PropTypes.node.isRequired,
 };
 
 export default MainDash;
