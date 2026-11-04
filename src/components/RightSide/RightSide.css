@@ -1,6 +1,23 @@
 .RightSide {
-    display: flex;
-    flex-direction: column;
-    width: 95%;
-    justify-content: space-evenly;
+  display: flex;
+  flex-direction: column;
+  width: 95%;
+  justify-content: space-evenly;
+  gap: 1rem;
+  padding: 1rem 0;
+  min-width: 0;
+  overflow-y: auto;
+}
+
+@media screen and (max-width: 1200px) {
+  .RightSide {
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .RightSide {
+    padding: 0 1rem;
+    overflow: visible;
+  }
 }

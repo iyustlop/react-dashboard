@@ -1,37 +1,85 @@
 #root {
-  --yellow: linear-gradient(180deg, #F8D49A -146.42%, #FAD79D -46.42%);
+  --yellow: linear-gradient(180deg, #f8d49a -146.42%, #fad79d -46.42%);
   --orange: #fca61f;
   --black: #242d49;
   --gray: #788097;
-  --purple: linear-gradient(180deg, #BB67FF 0%, #C484F3 100%);
-  --pink: #FF919D;
+  --purple: linear-gradient(180deg, #bb67ff 0%, #c484f3 100%);
+  --pink: #ff919d;
   --glass: rgba(255, 255, 255, 0.54);
   --boxShadow: 0px 19px 60px rgb(0 0 0 / 8%);
   --smboxShadow: -79px 51px 60px rgba(0, 0, 0, 0.08);
   --activeItem: #f799a354;
+
+  --card-purple: linear-gradient(180deg, #bb67ff 0%, #c484f3 100%);
+  --card-purple-shadow: 0px 10px 20px 0px #e0c6f5;
+  --card-pink: linear-gradient(180deg, #ff919d 0%, #fc929d 100%);
+  --card-pink-shadow: 0px 10px 20px 0px #fdc0c7;
+  --card-yellow: linear-gradient(rgb(248, 212, 154) -146.42%, rgb(255 202 113) -46.42%);
+  --card-yellow-shadow: 0px 10px 20px 0px #f9d59b;
 }
 
-.App{
-  background: linear-gradient(
-    106.37deg,
-    #ffe1bc 29.53%,
-    #ffcfd1 51.55%,
-    #f3c6f1 90.85%
-  );
-  height: 100vh;
+.App {
+  background: linear-gradient(106.37deg, #ffe1bc 29.53%, #ffcfd1 51.55%, #f3c6f1 90.85%);
+  min-height: 100vh;
+  min-height: 100dvh;
   display: flex;
   justify-content: center;
   align-items: center;
-  font-family: 'Inter', sans-serif;
+  padding: 1rem;
+  font-family: "Inter", sans-serif;
 }
 
-.AppGlass{
+.AppGlass {
   display: grid;
-  height: 97%;
+  height: 97vh;
+  height: 97dvh;
   width: 97%;
+  max-width: 1600px;
   border-radius: 2rem;
   background-color: var(--glass);
   overflow: hidden;
-  grid-template-columns: 11rem auto 20rem;
+  grid-template-columns: 11rem minmax(0, 1fr) 20rem;
   gap: 10px;
+}
+
+@media screen and (max-width: 1200px) {
+  .AppGlass {
+    grid-template-columns: 10rem minmax(0, 1fr);
+    grid-template-areas:
+      "sidebar main"
+      "sidebar right";
+    grid-template-rows: auto 1fr;
+    overflow-y: auto;
+  }
+
+  .Sidebar {
+    grid-area: sidebar;
+  }
+
+  .MainDash {
+    grid-area: main;
+  }
+
+  .RightSide {
+    grid-area: right;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .App {
+    align-items: flex-start;
+    padding: 0;
+  }
+
+  .AppGlass {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: auto;
+    min-height: 100dvh;
+    border-radius: 0;
+    overflow: visible;
+    gap: 1rem;
+    padding-bottom: 1rem;
+  }
 }

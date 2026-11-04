@@ -1,0 +1,20 @@
+// For format details, see https://aka.ms/devcontainer.json. For config options, see the
+// README at: https://github.com/devcontainers/templates/tree/main/src/typescript-node
+{
+  "name": "My Dashboard",
+  "dockerComposeFile": "./docker-compose.yml",
+  "service": "devcontainer",
+  "workspaceFolder": "/app",
+  "overrideCommand": true,
+  "shutdownAction": "none",
+  "appPort": [5173],
+  "extensions": ["dbaeumer.vscode-eslint", "esbenp.prettier-vscode"],
+  "remoteUser": "node",
+  "features": {
+    "ghcr.io/devcontainers/features/git:1": {
+      "installGit": "true"
+    }
+  },
+  "mounts": ["source=${env:HOME}/.ssh,target=/home/node/.ssh,type=bind,consistency=cached"],
+  "postCreateCommand": "npm install"
+}

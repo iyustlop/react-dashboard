@@ -1,6 +1,15 @@
-.MainDash{
-    display: flex;
-    flex-direction: column;
-    gap: 1rem
+.MainDash {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 1rem 1rem 1rem 0;
+  min-width: 0;
+  overflow-y: auto;
 }
 
+@media screen and (max-width: 768px) {
+  .MainDash {
+    padding: 0 1rem;
+    overflow: visible;
+  }
+}
