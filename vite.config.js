@@ -21,12 +21,23 @@ export default defineConfig({
     chunkSizeWarningLimit: 650,
     rollupOptions: {
       output: {
-        manualChunks: {
-          react: ["react", "react-dom"],
-          charts: ["apexcharts/core", "apexcharts/line", "react-apexcharts/core"],
-          mui: ["@mui/material", "@emotion/react", "@emotion/styled"],
-          motion: ["framer-motion"],
-          icons: ["@iconscout/react-unicons"],
+        // Vite 8 (Rolldown) solo admite la forma de función.
+        manualChunks(id) {
+          if (!id.includes("node_modules")) return undefined;
+          if (id.includes("node_modules/apexcharts") || id.includes("node_modules/react-apexcharts")) {
+            return "charts";
+          }
+          if (id.includes("node_modules/@mui") || id.includes("node_modules/@emotion")) {
+            return "mui";
+          }
+          if (id.includes("node_modules/framer-motion") || id.includes("node_modules/motion")) {
+            return "motion";
+          }
+          if (id.includes("node_modules/@iconscout")) return "icons";
+          if (id.includes("node_modules/react-dom") || id.includes("node_modules/react/")) {
+            return "react";
+          }
+          return undefined;
         },
       },
     },
