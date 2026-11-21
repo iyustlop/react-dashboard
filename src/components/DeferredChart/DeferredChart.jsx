@@ -9,18 +9,17 @@ const ApexChart = lazy(async () => {
   return import("react-apexcharts/core");
 });
 
+const supportsIntersectionObserver =
+  typeof window !== "undefined" && "IntersectionObserver" in window;
+
 const DeferredChart = ({ ariaLabel, options, series, type = "area" }) => {
   const containerRef = useRef(null);
-  const [isVisible, setIsVisible] = useState(false);
+  // Sin IntersectionObserver no hay nada que diferir: renderiza directamente.
+  const [isVisible, setIsVisible] = useState(!supportsIntersectionObserver);
 
   useEffect(() => {
     const container = containerRef.current;
-    if (!container) return undefined;
-
-    if (!("IntersectionObserver" in window)) {
-      setIsVisible(true);
-      return undefined;
-    }
+    if (!container || !supportsIntersectionObserver) return undefined;
 
     const observer = new IntersectionObserver(
       ([entry]) => {
