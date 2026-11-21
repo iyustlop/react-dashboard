@@ -31,6 +31,6 @@ Notas para agentes que trabajen en este repo. La fuente de verdad es `package.js
 - En ApexCharts, `toolbar` y `dropShadow` deben ir dentro de `chart`; en la raíz de `options` se ignoran en silencio. Usa `createAreaChartOptions` en vez de duplicar opciones.
 - Cada tarjeta expandible necesita un `layoutId` único de Framer Motion; compartirlo entre tarjetas rompe la animación.
 - Las variables CSS globales (`--orange`, `--pink`, `--glass`, colores de tarjeta, etc.) se declaran en `#root` dentro de `src/App.css`, no en `:root`; solo resuelven dentro del árbol de la app.
-- `vite.config.js` define `manualChunks` (react, charts, mui, motion, icons). Si añades una dependencia pesada, asígnala a un chunk. El chunk `charts` (ApexCharts) ronda los 527 kB, por eso `chunkSizeWarningLimit` está en 600.
+- `vite.config.js` define `manualChunks` (react, charts, mui, motion, icons). Si añades una dependencia pesada, asígnala a un chunk. El chunk `charts` (ApexCharts) ronda los 625 kB, por eso `chunkSizeWarningLimit` está en 650.
 - Los tests evitan expandir `Card` porque montaría ApexCharts en jsdom. Para probar la tarjeta, usa el estado compacto o mockea `react-apexcharts`.
 - El layout es responsive con breakpoints en `src/App.css` (1200px y 768px); los estilos de cada componente tienen sus propios media queries.

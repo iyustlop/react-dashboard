@@ -13,9 +13,9 @@ export default defineConfig({
     },
   },
   build: {
-    // ApexCharts es grande por sí solo (~527 kB); separarlo evita que el chunk
+    // ApexCharts es grande por sí solo (~625 kB); separarlo evita que el chunk
     // principal herede ese peso y que el warning salte en cada build.
-    chunkSizeWarningLimit: 600,
+    chunkSizeWarningLimit: 650,
     rollupOptions: {
       output: {
         manualChunks: {
