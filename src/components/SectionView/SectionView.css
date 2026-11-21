@@ -68,6 +68,10 @@
 }
 
 .analyticsPanel {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  min-height: 0;
   margin-top: 1rem;
   padding: 1rem;
   border-radius: 0.75rem;
@@ -75,12 +79,25 @@
   box-shadow: var(--boxShadow);
 }
 
+.analyticsPanel h2 {
+  flex: none;
+}
+
 .analyticsPanel .DeferredChart {
-  height: 20rem;
+  flex: 1;
+  min-height: 0;
 }
 
 @media screen and (max-width: 768px) {
   .analyticsSummary {
     grid-template-columns: 1fr;
+  }
+
+  .analyticsPanel {
+    flex: none;
+  }
+
+  .analyticsPanel .DeferredChart {
+    height: 20rem;
   }
 }

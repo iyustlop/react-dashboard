@@ -10,7 +10,7 @@ const analyticsChartOptions = createAreaChartOptions({
   strokeColor: "#fca61f",
   fillColor: "#fca61f",
   showYAxis: true,
-  height: 320,
+  height: "100%",
 });
 
 const sectionData = {

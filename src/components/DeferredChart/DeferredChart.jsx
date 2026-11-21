@@ -16,6 +16,9 @@ const DeferredChart = ({ ariaLabel, options, series, type = "area" }) => {
   const containerRef = useRef(null);
   // Sin IntersectionObserver no hay nada que diferir: renderiza directamente.
   const [isVisible, setIsVisible] = useState(!supportsIntersectionObserver);
+  // react-apexcharts da prioridad al prop `height` sobre `options.chart.height`;
+  // sin esto el wrapper usa "auto" y el SVG desborda el panel.
+  const chartHeight = options?.chart?.height;
 
   useEffect(() => {
     const container = containerRef.current;
@@ -45,7 +48,7 @@ const DeferredChart = ({ ariaLabel, options, series, type = "area" }) => {
             </div>
           }
         >
-          <ApexChart options={options} series={series} type={type} />
+          <ApexChart options={options} series={series} type={type} height={chartHeight} />
         </Suspense>
       ) : (
         <div className="chartLoading" aria-hidden="true" />
