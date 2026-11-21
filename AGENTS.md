@@ -29,6 +29,7 @@ Notas para agentes que trabajen en este repo. La fuente de verdad es `package.js
 - React 19 usa el runtime automático de JSX: **no** añadas `import React from "react"`; ESLint lo marca como no usado.
 - `eslint.config.js` activa `eslint-plugin-react` solo para `react/jsx-uses-vars`. Mantenlo: sin esa regla, imports usados únicamente en JSX (p. ej. `motion`) dan falso `no-unused-vars`. No reintroduzcas un `varsIgnorePattern` amplio.
 - En ApexCharts, `toolbar` y `dropShadow` deben ir dentro de `chart`; en la raíz de `options` se ignoran en silencio. Usa `createAreaChartOptions` en vez de duplicar opciones.
+- ApexCharts 8 es modular: `DeferredChart` importa `react-apexcharts/core` y registra `apexcharts/line` (cubre area/line). Si añades otro tipo de gráfico, importa su entry point (`apexcharts/bar`, `apexcharts/pie`…). `vite.config.js` deduplica `apexcharts` para evitar dos instancias.
 - Cada tarjeta expandible necesita un `layoutId` único de Framer Motion; compartirlo entre tarjetas rompe la animación.
 - Las variables CSS globales (`--orange`, `--pink`, `--glass`, colores de tarjeta, etc.) se declaran en `#root` dentro de `src/App.css`, no en `:root`; solo resuelven dentro del árbol de la app.
 - `vite.config.js` define `manualChunks` (react, charts, mui, motion, icons). Si añades una dependencia pesada, asígnala a un chunk. El chunk `charts` (ApexCharts) ronda los 625 kB, por eso `chunkSizeWarningLimit` está en 650.

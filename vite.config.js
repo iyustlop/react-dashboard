@@ -6,6 +6,9 @@ import { fileURLToPath, URL } from "node:url";
 export default defineConfig({
   plugins: [react()],
   resolve: {
+    // Evita que Vite cargue dos instancias de ApexCharts al mezclar los
+    // entry points modulares (apexcharts/line, apexcharts/core).
+    dedupe: ["apexcharts"],
     alias: {
       "@assets": fileURLToPath(new URL("./src/assets", import.meta.url)),
       "@components": fileURLToPath(new URL("./src/components", import.meta.url)),
@@ -20,7 +23,7 @@ export default defineConfig({
       output: {
         manualChunks: {
           react: ["react", "react-dom"],
-          charts: ["apexcharts", "react-apexcharts"],
+          charts: ["apexcharts/core", "apexcharts/line", "react-apexcharts/core"],
           mui: ["@mui/material", "@emotion/react", "@emotion/styled"],
           motion: ["framer-motion"],
           icons: ["@iconscout/react-unicons"],

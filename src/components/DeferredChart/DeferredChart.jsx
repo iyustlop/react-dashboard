@@ -2,7 +2,12 @@ import { lazy, Suspense, useEffect, useRef, useState } from "react";
 import PropTypes from "prop-types";
 import "./DeferredChart.css";
 
-const ApexChart = lazy(() => import("react-apexcharts"));
+// Solo registramos el tipo de gráfico que usa el dashboard (area/line) para
+// evitar cargar el bundle completo de ApexCharts.
+const ApexChart = lazy(async () => {
+  await import("apexcharts/line");
+  return import("react-apexcharts/core");
+});
 
 const DeferredChart = ({ ariaLabel, options, series, type = "area" }) => {
   const containerRef = useRef(null);

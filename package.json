@@ -19,11 +19,11 @@
     "@emotion/styled": "^11.14.1",
     "@iconscout/react-unicons": "^2.2.5",
     "@mui/material": "^9.5.0",
-    "apexcharts": "^5.3.5",
+    "apexcharts": "^8.9.1",
     "framer-motion": "^12.23.16",
     "prop-types": "^15.8.1",
     "react": "^19.3.1",
-    "react-apexcharts": "^1.7.0",
+    "react-apexcharts": "^2.2.1",
     "react-circular-progressbar": "^2.2.0",
     "react-dom": "^19.3.1"
   },
