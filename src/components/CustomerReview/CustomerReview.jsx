@@ -1,4 +1,4 @@
-import Chart from "react-apexcharts";
+import DeferredChart from "@components/DeferredChart/DeferredChart";
 import { createAreaChartOptions } from "@data/chartOptions";
 import "./CustomerReview.css";
 
@@ -18,7 +18,11 @@ const reviewSeries = [
 const CustomerReview = () => {
   return (
     <div className="CustomerReview">
-      <Chart options={reviewChartOptions} series={reviewSeries} type="area" />
+      <DeferredChart
+        ariaLabel="Customer reviews over the last 24 hours"
+        options={reviewChartOptions}
+        series={reviewSeries}
+      />
     </div>
   );
 };

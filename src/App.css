@@ -42,6 +42,10 @@
   gap: 10px;
 }
 
+.AppGlass--singlePane {
+  grid-template-columns: 11rem minmax(0, 1fr);
+}
+
 @media screen and (max-width: 1200px) {
   .AppGlass {
     grid-template-columns: 10rem minmax(0, 1fr);
@@ -50,6 +54,12 @@
       "sidebar right";
     grid-template-rows: auto 1fr;
     overflow-y: auto;
+  }
+
+  .AppGlass--singlePane {
+    grid-template-columns: 10rem minmax(0, 1fr);
+    grid-template-areas: "sidebar main";
+    grid-template-rows: 1fr;
   }
 
   .Sidebar {

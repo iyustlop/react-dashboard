@@ -1,3 +1,12 @@
+.ordersSection {
+  min-width: 0;
+}
+
+.ordersSection h2 {
+  margin: 0 0 0.75rem;
+  font-size: 1.1rem;
+}
+
 .MuiTableRow-root > * {
   padding: 10px;
 }
@@ -18,6 +27,33 @@
   font: inherit;
   cursor: pointer;
   padding: 0;
+}
+
+.visuallyHidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.orderDetails {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 0.75rem 1.5rem;
+  margin: 0;
+}
+
+.orderDetails dt {
+  font-weight: 700;
+}
+
+.orderDetails dd {
+  margin: 0;
 }
 
 .Details:focus-visible {

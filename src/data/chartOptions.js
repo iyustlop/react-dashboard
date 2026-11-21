@@ -1,12 +1,8 @@
-const chartDates = [
-  "2023-01-19T00:00:00.000Z",
-  "2023-01-19T01:30:00.000Z",
-  "2023-01-19T02:30:00.000Z",
-  "2023-01-19T03:30:00.000Z",
-  "2023-01-19T04:30:00.000Z",
-  "2023-01-19T05:30:00.000Z",
-  "2023-01-19T06:30:00.000Z",
-];
+const pointCount = 7;
+const chartEnd = Date.now();
+const chartDates = Array.from({ length: pointCount }, (_, index) =>
+  new Date(chartEnd - (pointCount - 1 - index) * 4 * 60 * 60 * 1000).toISOString(),
+);
 
 /**
  * Shared ApexCharts config for the area charts.
