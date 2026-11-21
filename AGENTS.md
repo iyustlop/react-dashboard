@@ -4,13 +4,14 @@ Notas para agentes que trabajen en este repo. La fuente de verdad es `package.js
 
 ## Stack
 
-- Vite 7 + React 19, JavaScript (sin TypeScript), CSS plano por componente.
+- Vite 8 + React 19, JavaScript (sin TypeScript), CSS plano por componente.
 - MUI solo para la tabla de pedidos; ApexCharts para gráficos; Framer Motion para expandir tarjetas; Unicons para iconos.
 - Sin router ni capa de API: la selección del `Sidebar` es estado local y los datos están hardcodeados en `src/data/data.js`.
 
 ## Comandos
 
 - Gestor de paquetes: npm (`package-lock.json`). Instalación: `npm install`.
+- Node requerido: `^22.22.2 || ^24.15.0 || >=26.0.0` (lo exige jsdom 31).
 - `npm run dev` → Vite en el puerto 5173. `npm run preview` sirve `dist/`.
 - Verificación completa: `npm run verify` (`lint` → `test` → `build`). No hay typecheck.
 - `npm run test` ejecuta Vitest una vez; `npm run test:watch` en watch.
